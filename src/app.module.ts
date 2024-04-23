@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CoffeeController } from './coffee/cofffee.controller';
-import { CoffeeService } from './coffee/coffee.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CoffeesModule } from './coffees/coffees.module';
 
 @Module({
   imports: [
@@ -12,13 +11,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'pass123',
-      database: 'postgres',
+      password: 'pgadmin4',
+      database: 'coffeedb',
       synchronize: true,
       autoLoadEntities: true,
     }),
+    CoffeesModule,
   ],
-  controllers: [AppController, CoffeeController],
-  providers: [AppService, CoffeeService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
