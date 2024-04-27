@@ -9,6 +9,6 @@ export class Flavor {
   @Column()
   name: string;
 
-@ManyToMany(type => Coffee, coffee => coffee.flavour)
+@ManyToMany(type => Coffee, coffee => coffee.flavor)
  coffees: Coffee[]
 }
