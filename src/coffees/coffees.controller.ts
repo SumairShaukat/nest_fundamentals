@@ -22,7 +22,7 @@ export class CoffeesController {
     return this.coffeesService.create(createCoffeeDto);
   }
 
-  @Get('/')
+  @Get('all')
   findAll(@Query () paginationQuery: pagiantionQueryDto) {
     return this.coffeesService.findAll(paginationQuery);
   }
